@@ -1,0 +1,5 @@
+MAIN_PAGE = 'https://mail.ru'
+LOGIN = 'qa_auto_test'
+PASSWORD = 'NrUisvgtV9qyUBk6'
+ADDRESSEE = 'test@test.com'
+MAIL_TEXT = 'ТЕСТОВЫЙ ТЕКСТ ПИСЬМА'
