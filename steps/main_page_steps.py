@@ -1,4 +1,5 @@
 from .basic_steps import BasicSteps
+from selenium.webdriver.common.keys import Keys
 import time
 
 
@@ -14,13 +15,16 @@ class MainPageSteps(BasicSteps):
     def send_email_step(self, addressee, text):
     	self.browser.find_element_by_partial_link_text("Написать письмо").click()
     	self.browser.find_element_by_css_selector("textarea[data-original-name='To']").send_keys(addressee)
-    	time.sleep(2)
+    	time.sleep(1)
     	iframe_name = self.browser.find_element_by_css_selector("iframe[title='{#aria.rich_text_area}']")
     	self.browser.switch_to_frame(iframe_name)
-    	time.sleep(5)
-    	self.browser.find_element_by_id("tinymce").click()
+    	time.sleep(1)
+    	area = self.browser.find_element_by_id("tinymce")
+    	area.click()
+    	area.send_keys(Keys.UP)
+    	area.send_keys(Keys.UP)
     	self.browser.find_element_by_id("tinymce").send_keys(text)
-    	time.sleep(5)
+    	time.sleep(1)
     	self.browser.switch_to.parent_frame()
     	self.browser.find_element_by_css_selector("div[data-name='send']").click()
-    	time.sleep(5)
+    	time.sleep(3)
